@@ -27,7 +27,7 @@ tries = 0
 maxval = getMax()
 val = random.randint(1, maxval)
 while True:
-    res = input("Input Guess: ")
+    res = input(f"Input Guess (1-{maxval-1}): ")
     if not res.isnumeric():
         print("Invalid Input")
     else:
@@ -37,9 +37,12 @@ while True:
         else:
             tries += 1
             if num > val:
-                print("Lower")
+                print("Too High!")
             elif num < val:
-                print("Higher")
+                print("Too Low!")
             else:
                 print(f"Correct! Got the correct number in {tries} tries.")
+                break
+            if tries >= 5:
+                print(f"The number was {val}.")
                 break
